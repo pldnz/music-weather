@@ -1,4 +1,3 @@
-
 export default function initSaveMusic() {
     const saveBtn = document.querySelectorAll('#add');
     const songs = document.querySelectorAll('.song');
@@ -22,6 +21,5 @@ export default function initSaveMusic() {
             playlist.push(song_to_save);
             localStorage.setItem('playlist', JSON.stringify(playlist));
         })
-
     })
 }

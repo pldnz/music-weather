@@ -9,7 +9,6 @@ export default function initConsumeWeather() {
     function getPosition(position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-        console.log(lat, lon);
 
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherKey}&units=metric`)
         .then(response => response.json())
@@ -23,13 +22,12 @@ export default function initConsumeWeather() {
             let genre;
             if(temp < 16) 
                 genre = 'ROCK';
-            if(temp < 24)
+            if(temp > 16 && temp < 24)
                 genre = 'ALTERNATIVE';
-            if(temp < 32)
+            if(temp > 24 && temp < 32)
                 genre = 'POP';
             if(temp > 32)
                 genre = 'DANCE';
-            console.log(genre);
             initConsumeShazam(genre)
         });
     }
