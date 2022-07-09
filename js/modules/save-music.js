@@ -3,22 +3,22 @@ export default function initSaveMusic() {
     const songs = document.querySelectorAll('.song');
 
     saveBtn.forEach((btn, index) => {
-        btn.addEventListener('click', function() {
-            const src = songs[index].querySelector('img').src;
+        btn.addEventListener('click', () => {
+            const { src } = songs[index].querySelector('img');
             const linkHref = songs[index].querySelector('a').href;
             const link = songs[index].querySelector('a');
             const name = link.children[0].innerText;
             const artist = link.children[1].innerText;
-            const song_to_save = {
-                src: src,
-                link: linkHref,
-                name: name,
-                artist: artist,
+            const songToSave = {
+                src,
+                linkHref,
+                name,
+                artist,
             }
 
-            let playlist = JSON.parse(localStorage.getItem('playlist')) || [];
+            const playlist = JSON.parse(localStorage.getItem('playlist')) || [];
 
-            playlist.push(song_to_save);
+            playlist.push(songToSave);
             localStorage.setItem('playlist', JSON.stringify(playlist));
         })
     })

@@ -13,7 +13,7 @@ initConsumeShazam();
 
 const tab = document.querySelector('[data-btn-tab]');
 
-tab.addEventListener('click', function(e){
+tab.addEventListener('click', () => {
     initDismountPlaylist();
     initShowPlaylist();
     initDeleteMusic();
